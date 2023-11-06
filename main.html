@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jocul cu Bila (nu are bila)</title>
+  </head>
+  <body>
+    <link href='https://fonts.googleapis.com/css?family=JetBrains Mono' rel='stylesheet'>
+
+<style>
+body {
+    font-family: 'JetBrains Mono';font-size: 15px;
+}
+</style>
+
+<style>
+    .hidden {
+        display: none;
+    }
+    .center {
+margin: 0;
+position: absolute;
+top: 50%;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+transform: translate(-50%, -50%);
+}
+    .centered {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+}
+
+
+</style>
+
+    <body bgcolor="#151515"></body>
+    <h1  style="color: #FFFFFF">Jocul cu bila (nu are bila), (momentan)</h1>
+    <p style="color: #FFFFFF"><br>lets be realistic about this, if the oceans melted, the philippines would be real<br><br><br></p>
+    <style>
+        h1 {
+  text-align: center;
+            }
+        p {
+  text-align: center
+         }
+
+    </style>
+    
+    
+        <div class="centered">
+            <canvas id="matrixCanvas" width="600" height="600"></canvas>
+        </div>
+    <div class="center">
+    <button id="playButton">play game</button>
+    <script>
+        const playButton = document.getElementById('playButton');
+
+        playButton.addEventListener('click', function() {
+            playButton.classList.add('hidden'); // Hide the button after clicking
+            // Get a reference to the canvas element and its 2d drawing context
+      var canvas = document.getElementById("matrixCanvas");
+      var ctx = canvas.getContext("2d");
+
+      // Set the size of the matrix and the size of each cell
+      var matrixSize = 15;
+      var cellSize = canvas.width / matrixSize;
+
+      // Loop through rows and columns to draw the matrix
+      for (var row = 0; row < matrixSize; row++) {
+        for (var col = 0; col < matrixSize; col++) {
+          // Set the fill color for each cell (white)
+          ctx.fillStyle = "#151515";
+          ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
+
+          // Draw thin lines around each cell (black)
+          ctx.strokeStyle = "white";
+          ctx.lineWidth = 1;
+          ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
+        }
+      }
+      
+        });
+    </script>
+</body>
+
+<footer>
+    <style>
+        .imgcenter {
+    position: fixed;
+    bottom: 0
+    vertical-align: text-bottom;   
+}
+    </style>
+
+<div class="imgcenter">
+    <p><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></p>
+ <img src="pow.png" alt="powered by monster">
+    
+</div>
+</footer>
+</html>
