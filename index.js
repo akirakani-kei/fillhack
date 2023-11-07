@@ -234,7 +234,7 @@ const render = (force) => {
     changesTimeIndicator.innerHTML = `${(((lastAlgorRun + minimumTimeBeforeAlgorRun) - Date.now())/1000)}s until next changes (${minimumTimeBeforeAlgorRun/1000}s)`;
     moreYellowsTimeIndicator.innerHTML = `${(((lastGridRandomise + 5000) - Date.now())/1000)}s until more yellows (1 in ${oneInXChanceForYellow+1}, ${((lastYellowChanceChange + 15000) - Date.now())/1000}s)`;
     
-    let dashTimeText = (Date.now() - lastDash) > 30000 ? `dash ready` : `${(((lastDash + 30000) - Date.now())/1000)}s until next dash`;
+    let dashTimeText = (Date.now() - lastDash) > 30000 ? `<span style="color: green">dash ready</span>` : `<span style="color: white">${(((lastDash + 30000) - Date.now())/1000)}s until next dash</span>`;
     
     dashTime.innerHTML = dashTimeText;
     timeSurvived.innerHTML = `${((Date.now() - startTime)/1000)}s survived`;
