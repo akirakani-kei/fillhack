@@ -72,7 +72,7 @@ function forceGridReset() {
 
 //151515
 let colors = [
-    "gray",
+    "#544C4A",
     "yellow",
     "orange",
     "red",
@@ -196,17 +196,13 @@ const render = (force) => {
         lastYellowChanceChange = Date.now();
     }
 
-    // Set the size of the matrix and the size of each cell
     var matrixSize = 15;
     var cellSize = canvas.width / matrixSize;
-    // Loop through rows and columns to draw the matrix
     for (var row = 0; row < matrixSize; row++) {
       for (var col = 0; col < matrixSize; col++) {
-        // Set the fill color for each cell (white)
         // ctx.fillStyle = "#151515";
         ctx.fillStyle = colors[grid[row][col]];
         ctx.fillRect(col * cellSize, row * cellSize, cellSize, cellSize);
-        // Draw thin lines around each cell (black)
         ctx.strokeStyle = "white";
         ctx.lineWidth = 1;
         ctx.strokeRect(col * cellSize, row * cellSize, cellSize, cellSize);
@@ -231,11 +227,11 @@ const render = (force) => {
 
     ctx.font = "10px JetBrains Mono";
     ctx.fillStyle = "black";
-    changesTimeIndicator.innerHTML = `${(((lastAlgorRun + minimumTimeBeforeAlgorRun) - Date.now())/1000)}s until next changes (${minimumTimeBeforeAlgorRun/1000}s)`;
-    moreYellowsTimeIndicator.innerHTML = `${(((lastGridRandomise + 5000) - Date.now())/1000)}s until more yellows (1 in ${oneInXChanceForYellow+1}, ${((lastYellowChanceChange + 15000) - Date.now())/1000}s)`;
+    changesTimeIndicator.innerHTML = `${(((lastAlgorRun + minimumTimeBeforeAlgorRun) - Date.now())/1000)}s pana la fill (${minimumTimeBeforeAlgorRun/1000}s)`;
+    moreYellowsTimeIndicator.innerHTML = `${(((lastGridRandomise + 5000) - Date.now())/1000)}s pana la generare (1 in ${oneInXChanceForYellow+1}, ${((lastYellowChanceChange + 15000) - Date.now())/1000}s)`;
     
-    let dashTimeText = (Date.now() - lastDash) > 30000 ? `<span style="color: green">dash ready</span>` : `<span style="color: white">${(((lastDash + 30000) - Date.now())/1000)}s until next dash</span>`;
-    
+    let dashTimeText = (Date.now() - lastDash) > 30000 ? `<span style="color: #39ff14">dash ready</span>` : `<span style="color: white">${(((lastDash + 30000) - Date.now())/1000)}s pana la urmatorul dash</span>`;
+
     dashTime.innerHTML = dashTimeText;
     timeSurvived.innerHTML = `${((Date.now() - startTime)/1000)}s survived`;
 
@@ -252,14 +248,15 @@ const render = (force) => {
     //     }
     // }
 
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "#85A1F2";
     ctx.fillRect((x*40)+10, (y*40)+10, 20, 20);
 
     if (grid[y][x] == 4) kill = true;
     if (kill) {
         ctx.font = "50px Arial";
-        ctx.fillStyle = "red";
+        ctx.fillStyle = "white";
         ctx.fillText("you died", 220, 300);
+       
         //alert(`game over you suck \n you survived for: ${(Date.now() - startTime)/1000} seconds`) 
     
         document.getElementById('playButton').style.display = "";
